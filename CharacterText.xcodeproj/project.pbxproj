@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EEE15EF57964A2A970FCDF9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EF17A2B9484331A6D06389 /* libPods.a */; };
+		AF1704D4196B9D9D00AA5ED1 /* CharacterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1704C5196B9D9D00AA5ED1 /* CharacterLabel.swift */; };
+		AF1704D5196B9D9D00AA5ED1 /* CharacterTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1704C6196B9D9D00AA5ED1 /* CharacterTextView.swift */; };
+		AF1704D6196B9D9D00AA5ED1 /* CATextLayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1704C8196B9D9D00AA5ED1 /* CATextLayerExtensions.swift */; };
+		AF1704D7196B9D9D00AA5ED1 /* FlickrCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1704CA196B9D9D00AA5ED1 /* FlickrCollectionViewCell.swift */; };
+		AF1704D8196B9D9D00AA5ED1 /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1704CB196B9D9D00AA5ED1 /* FlickrPhoto.swift */; };
+		AF1704D9196B9D9D00AA5ED1 /* FadingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1704CD196B9D9D00AA5ED1 /* FadingLabel.swift */; };
+		AF1704DA196B9D9D00AA5ED1 /* FallingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1704CE196B9D9D00AA5ED1 /* FallingLabel.swift */; };
+		AF1704DB196B9D9D00AA5ED1 /* MotionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1704CF196B9D9D00AA5ED1 /* MotionLabel.swift */; };
+		AF1704DC196B9D9D00AA5ED1 /* CLMLayerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1704D1196B9D9D00AA5ED1 /* CLMLayerAnimation.swift */; };
+		AF1704DD196B9D9D00AA5ED1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1704D3196B9D9D00AA5ED1 /* ViewController.swift */; };
 		AF7BB325195C749600E46AF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BB324195C749600E46AF2 /* AppDelegate.swift */; };
-		AF7BB327195C749600E46AF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BB326195C749600E46AF2 /* ViewController.swift */; };
 		AF7BB32A195C749600E46AF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF7BB328195C749600E46AF2 /* Main.storyboard */; };
 		AF7BB32C195C749600E46AF2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF7BB32B195C749600E46AF2 /* Images.xcassets */; };
 		AF7BB338195C749600E46AF2 /* CharacterTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7BB337195C749600E46AF2 /* CharacterTextTests.swift */; };
@@ -25,15 +35,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34EF17A2B9484331A6D06389 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		449B19C1BD934D6594ECA096 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		AF1704C5196B9D9D00AA5ED1 /* CharacterLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterLabel.swift; sourceTree = "<group>"; };
+		AF1704C6196B9D9D00AA5ED1 /* CharacterTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterTextView.swift; sourceTree = "<group>"; };
+		AF1704C8196B9D9D00AA5ED1 /* CATextLayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATextLayerExtensions.swift; sourceTree = "<group>"; };
+		AF1704CA196B9D9D00AA5ED1 /* FlickrCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrCollectionViewCell.swift; sourceTree = "<group>"; };
+		AF1704CB196B9D9D00AA5ED1 /* FlickrPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhoto.swift; sourceTree = "<group>"; };
+		AF1704CD196B9D9D00AA5ED1 /* FadingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadingLabel.swift; sourceTree = "<group>"; };
+		AF1704CE196B9D9D00AA5ED1 /* FallingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallingLabel.swift; sourceTree = "<group>"; };
+		AF1704CF196B9D9D00AA5ED1 /* MotionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionLabel.swift; sourceTree = "<group>"; };
+		AF1704D1196B9D9D00AA5ED1 /* CLMLayerAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLMLayerAnimation.swift; sourceTree = "<group>"; };
+		AF1704D3196B9D9D00AA5ED1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF7BB31F195C749600E46AF2 /* CharacterText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7BB323195C749600E46AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF7BB324195C749600E46AF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AF7BB326195C749600E46AF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF7BB329195C749600E46AF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF7BB32B195C749600E46AF2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AF7BB331195C749600E46AF2 /* CharacterTextTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterTextTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7BB336195C749600E46AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF7BB337195C749600E46AF2 /* CharacterTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTextTests.swift; sourceTree = "<group>"; };
+		AFFE04CB196A5EA6002377A6 /* CharacterText-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterText-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EEE15EF57964A2A970FCDF9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,12 +77,88 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57E8CB34692F4216B1A379DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34EF17A2B9484331A6D06389 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF1704C3196B9D9D00AA5ED1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AF1704C4196B9D9D00AA5ED1 /* CharacterLabel */,
+				AF1704C7196B9D9D00AA5ED1 /* Extensions */,
+				AF1704C9196B9D9D00AA5ED1 /* Flickr */,
+				AF1704CC196B9D9D00AA5ED1 /* Labels */,
+				AF1704D0196B9D9D00AA5ED1 /* Utilities */,
+				AF1704D2196B9D9D00AA5ED1 /* ViewControllers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AF1704C4196B9D9D00AA5ED1 /* CharacterLabel */ = {
+			isa = PBXGroup;
+			children = (
+				AF1704C5196B9D9D00AA5ED1 /* CharacterLabel.swift */,
+				AF1704C6196B9D9D00AA5ED1 /* CharacterTextView.swift */,
+			);
+			path = CharacterLabel;
+			sourceTree = "<group>";
+		};
+		AF1704C7196B9D9D00AA5ED1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AF1704C8196B9D9D00AA5ED1 /* CATextLayerExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AF1704C9196B9D9D00AA5ED1 /* Flickr */ = {
+			isa = PBXGroup;
+			children = (
+				AF1704CA196B9D9D00AA5ED1 /* FlickrCollectionViewCell.swift */,
+				AF1704CB196B9D9D00AA5ED1 /* FlickrPhoto.swift */,
+			);
+			path = Flickr;
+			sourceTree = "<group>";
+		};
+		AF1704CC196B9D9D00AA5ED1 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				AF1704CD196B9D9D00AA5ED1 /* FadingLabel.swift */,
+				AF1704CE196B9D9D00AA5ED1 /* FallingLabel.swift */,
+				AF1704CF196B9D9D00AA5ED1 /* MotionLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		AF1704D0196B9D9D00AA5ED1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AF1704D1196B9D9D00AA5ED1 /* CLMLayerAnimation.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		AF1704D2196B9D9D00AA5ED1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AF1704D3196B9D9D00AA5ED1 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		AF7BB316195C749600E46AF2 = {
 			isa = PBXGroup;
 			children = (
 				AF7BB321195C749600E46AF2 /* CharacterText */,
 				AF7BB334195C749600E46AF2 /* CharacterTextTests */,
 				AF7BB320195C749600E46AF2 /* Products */,
+				449B19C1BD934D6594ECA096 /* Pods.xcconfig */,
+				57E8CB34692F4216B1A379DF /* Frameworks */,
+				AFFE04CB196A5EA6002377A6 /* CharacterText-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,9 +175,9 @@
 			isa = PBXGroup;
 			children = (
 				AF7BB324195C749600E46AF2 /* AppDelegate.swift */,
-				AF7BB326195C749600E46AF2 /* ViewController.swift */,
-				AF7BB328195C749600E46AF2 /* Main.storyboard */,
+				AF1704C3196B9D9D00AA5ED1 /* Classes */,
 				AF7BB32B195C749600E46AF2 /* Images.xcassets */,
+				AF7BB328195C749600E46AF2 /* Main.storyboard */,
 				AF7BB322195C749600E46AF2 /* Supporting Files */,
 			);
 			path = CharacterText;
@@ -116,9 +215,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF7BB33B195C749600E46AF2 /* Build configuration list for PBXNativeTarget "CharacterText" */;
 			buildPhases = (
+				FA67BE65ECAB416193AB22CB /* Check Pods Manifest.lock */,
 				AF7BB31B195C749600E46AF2 /* Sources */,
 				AF7BB31C195C749600E46AF2 /* Frameworks */,
 				AF7BB31D195C749600E46AF2 /* Resources */,
+				586E4B0FC94A468E915AA357 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,13 +304,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		586E4B0FC94A468E915AA357 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA67BE65ECAB416193AB22CB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AF7BB31B195C749600E46AF2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF7BB327195C749600E46AF2 /* ViewController.swift in Sources */,
+				AF1704D7196B9D9D00AA5ED1 /* FlickrCollectionViewCell.swift in Sources */,
+				AF1704DB196B9D9D00AA5ED1 /* MotionLabel.swift in Sources */,
+				AF1704D8196B9D9D00AA5ED1 /* FlickrPhoto.swift in Sources */,
+				AF1704DC196B9D9D00AA5ED1 /* CLMLayerAnimation.swift in Sources */,
+				AF1704DD196B9D9D00AA5ED1 /* ViewController.swift in Sources */,
+				AF1704DA196B9D9D00AA5ED1 /* FallingLabel.swift in Sources */,
+				AF1704D9196B9D9D00AA5ED1 /* FadingLabel.swift in Sources */,
+				AF1704D6196B9D9D00AA5ED1 /* CATextLayerExtensions.swift in Sources */,
+				AF1704D4196B9D9D00AA5ED1 /* CharacterLabel.swift in Sources */,
 				AF7BB325195C749600E46AF2 /* AppDelegate.swift in Sources */,
+				AF1704D5196B9D9D00AA5ED1 /* CharacterTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,23 +465,30 @@
 		};
 		AF7BB33C195C749600E46AF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 449B19C1BD934D6594ECA096 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CharacterText/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CharacterText-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		AF7BB33D195C749600E46AF2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 449B19C1BD934D6594ECA096 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CharacterText/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CharacterText-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -397,6 +547,7 @@
 				AF7BB33D195C749600E46AF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF7BB33E195C749600E46AF2 /* Build configuration list for PBXNativeTarget "CharacterTextTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +556,7 @@
 				AF7BB340195C749600E46AF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
