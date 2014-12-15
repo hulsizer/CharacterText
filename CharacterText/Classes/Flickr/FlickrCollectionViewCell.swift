@@ -12,8 +12,13 @@ class FlickrCollectionViewCell: UICollectionViewCell {
     var photoImageView: UIImageView!
     var darkenMask: UIView!
     
-    init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
+        initialSetup()
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         initialSetup()
     }
     
@@ -24,7 +29,7 @@ class FlickrCollectionViewCell: UICollectionViewCell {
     
     func configure(flickrPhoto: FlickrPhoto) {
         photoImageView.alpha = 0
-        photoImageView.setImageWithURL(flickrPhoto.photoURL) { image, error, cacheType in
+        photoImageView.sd_setImageWithURL(flickrPhoto.photoURL) { (image, error, cacheType, url) -> Void in
             switch cacheType {
             case SDImageCacheType.Memory:
                 self.photoImageView.alpha = 1
@@ -34,6 +39,7 @@ class FlickrCollectionViewCell: UICollectionViewCell {
                 }
             }
         }
+        
     }
     
     func initialSetup() {

@@ -43,13 +43,10 @@
 	
 	self.currentElementContent = nil;
 	
-	BOOL success = NO;
 	if ([elementName isEqualToString:@"rsp"]) {
 		NSString *status = [attributeDict objectForKey:@"stat"];
 		if ([status isEqualToString:@"ok"]) {
-			success = YES;
 		} else if ([status isEqualToString:@"fail"]) {
-			success = NO;
 		}
 	}
 	

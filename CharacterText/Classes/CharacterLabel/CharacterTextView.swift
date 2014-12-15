@@ -41,9 +41,14 @@ class CharacterTextView: UITextView, NSLayoutManagerDelegate {
     
     }
         
-    init(frame: CGRect, textContainer: NSTextContainer!) {
+    override init(frame: CGRect, textContainer: NSTextContainer!) {
         super.init(frame: frame, textContainer: textContainer);
         setupLayoutManager();
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupLayoutManager()
     }
     
     override func awakeFromNib()  {
@@ -68,7 +73,7 @@ class CharacterTextView: UITextView, NSLayoutManagerDelegate {
             let glyphRange = NSMakeRange(index, 1);
             let characterRange = layoutManager.characterRangeForGlyphRange(glyphRange, actualGlyphRange:nil);
             let textContainer = layoutManager.textContainerForGlyphAtIndex(index, effectiveRange: nil);
-            var glyphRect = layoutManager.boundingRectForGlyphRange(glyphRange, inTextContainer: textContainer);
+            var glyphRect = layoutManager.boundingRectForGlyphRange(glyphRange, inTextContainer: textContainer!);
             var location = layoutManager.locationForGlyphAtIndex(index);
             var kerningRange = layoutManager.rangeOfNominallySpacedGlyphsContainingIndex(index);
             

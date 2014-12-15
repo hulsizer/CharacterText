@@ -15,5 +15,6 @@
 @property (nonatomic, assign, readonly) CGFloat uploadProgress;
 
 - (id) initWithImage:(UIImage *)image arguments:(NSDictionary *)args completion:(FKAPIImageUploadCompletion)completion;
+- (id) initWithAssetURL:(NSURL *)assetURL arguments:(NSDictionary *)args completion:(FKAPIImageUploadCompletion)completion;
 
 @end

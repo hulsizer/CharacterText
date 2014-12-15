@@ -87,7 +87,7 @@ class CLMLayerAnimation: NSObject {
         }
         
         if animations.count > 0 {
-            animationGroup = CAAnimationGroup()
+            animationGroup = CAAnimationGroup() as CAAnimationGroup
             animationGroup!.animations = animations
         }
         

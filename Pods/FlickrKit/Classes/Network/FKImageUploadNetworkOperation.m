@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSDictionary *args;
 @property (nonatomic, assign) CGFloat uploadProgress;
 @property (nonatomic, assign) NSUInteger fileSize;
+@property (nonatomic, assign) NSURL* assetURL;
 @end
 
 @implementation FKImageUploadNetworkOperation
@@ -28,6 +29,18 @@
     self = [super init];
     if (self) {
 		self.image = image;
+        self.assetURL = nil;
+		self.args = args;
+		self.completion = completion;
+    }
+    return self;
+}
+
+- (id) initWithAssetURL:(NSURL *)assetURL arguments:(NSDictionary *)args completion:(FKAPIImageUploadCompletion)completion; {
+    self = [super init];
+    if (self) {
+		self.image = nil;
+        self.assetURL = assetURL;
 		self.args = args;
 		self.completion = completion;
     }
@@ -109,13 +122,25 @@
 	// Output stream is the file... 
     NSOutputStream *outputStream = [NSOutputStream outputStreamToFileAtPath:tempFileName append:NO];
     [outputStream open];
-	
-	// Input stream is the image
-	NSData *imgData = UIImageJPEGRepresentation(self.image, 1.0);
-	NSInputStream *inImageStream = [[NSInputStream alloc] initWithData:imgData];
-	
-	// Write the contents to the streams... don't cross the streams !
-	[FKDUStreamUtil writeMultipartStartString:multipartOpeningString imageStream:inImageStream toOutputStream:outputStream closingString:multipartClosingString];
+    
+    if( self.image ){
+        // Input stream is the image
+        NSData *imgData = UIImageJPEGRepresentation(self.image, 1.0);
+        NSInputStream *inImageStream = [[NSInputStream alloc] initWithData:imgData];
+        
+        // Write the contents to the streams... don't cross the streams !
+        [FKDUStreamUtil writeMultipartStartString:multipartOpeningString imageStream:inImageStream toOutputStream:outputStream closingString:multipartClosingString];
+    }
+    else if( self.assetURL ){
+        [FKDUStreamUtil writeMultipartWithAssetURL:self.assetURL
+                                       startString:multipartOpeningString
+                                         imageFile:tempFileName
+                                    toOutputStream:outputStream
+                                     closingString:multipartClosingString];
+    }
+    else{
+        return nil;
+    }
 
 	// Get the file size
     NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:tempFileName error:error];
@@ -178,8 +203,8 @@
     self.uploadProgress = (CGFloat) totalBytesWritten / (CGFloat) self.fileSize;
     
 #ifdef DEBUG
-    NSLog(@"file size is %i", self.fileSize);
-	NSLog(@"Sent %i, total Sent %i, expected total %i", bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);
+    NSLog(@"file size is %lu", (unsigned long)self.fileSize);
+	NSLog(@"Sent %li, total Sent %li, expected total %li", (long)bytesWritten, (long)totalBytesWritten, (long)totalBytesExpectedToWrite);
     NSLog(@"Upload progress is %f", self.uploadProgress);
 #endif
 }
