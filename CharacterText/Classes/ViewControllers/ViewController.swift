@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    @IBOutlet var collectionView: UICollectionView
+    @IBOutlet var collectionView: UICollectionView!
     var dataArray = Array<FlickrPhoto>()
     var characterLabel: MotionLabel!;
     
@@ -26,7 +26,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         FlickrKit.sharedFlickrKit().initializeWithAPIKey("334626934a41897193b6a0613f1c94a0", sharedSecret: "b0132e5cfd44574b")
         let flickrKit = FlickrKit.sharedFlickrKit()
         flickrKit.call(FKFlickrInterestingnessGetList()) { response, error in
-            if response {
+            if let response = response {
                 var photoUrls = Array<FlickrPhoto>()
                 var photos: NSDictionary = response["photos"] as NSDictionary;
                 var photoArray: NSArray = photos["photo"] as NSArray;
@@ -54,13 +54,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         characterLabel.text = "You"
         self.view.addSubview(characterLabel)
     }
-
-    func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArray.count
     }
     
-    func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell
-    {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var collectionViewCell : FlickrCollectionViewCell! = collectionView.dequeueReusableCellWithReuseIdentifier("FlickrCollectionViewCell", forIndexPath: indexPath) as FlickrCollectionViewCell
         
         collectionViewCell.configure(dataArray[indexPath.row])
