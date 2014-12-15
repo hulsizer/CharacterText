@@ -29,7 +29,7 @@ class FlickrCollectionViewCell: UICollectionViewCell {
     
     func configure(flickrPhoto: FlickrPhoto) {
         photoImageView.alpha = 0
-        photoImageView.setImageWithURL(flickrPhoto.photoURL) { image, error, cacheType in
+        photoImageView.sd_setImageWithURL(flickrPhoto.photoURL) { (image, error, cacheType, url) -> Void in
             switch cacheType {
             case SDImageCacheType.Memory:
                 self.photoImageView.alpha = 1
@@ -39,6 +39,7 @@ class FlickrCollectionViewCell: UICollectionViewCell {
                 }
             }
         }
+        
     }
     
     func initialSetup() {

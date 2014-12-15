@@ -6,33 +6,33 @@
 	<dict>
 		<key>Pods-FlickrKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>432590842CC541BEA2C5F3B6</key>
+		<key>399383C56EBC41B8825F24CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E052698215B41498BAF5177</key>
+		<key>3F8B7A607FE04D5C9CDA4061</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BCD5DF8710C248BBA0378911</key>
+		<key>5DBC4EDDAA2D4C2E90614187</key>
 		<dict>
 			<key>primary</key>
 			<true/>
