@@ -44,7 +44,7 @@ class FadingLabel: CharacterLabel {
         }
     }
     
-    func animateOut(completion: ((finished: Bool) -> Void)?) {
+    func animateOut(completion: ((finished: Bool) -> Void)? = nil) {
         
         var longestAnimation = 0.0
         var longestAnimationIndex = -1
@@ -64,7 +64,7 @@ class FadingLabel: CharacterLabel {
                 }, completion:{ finished in
                     textLayer.removeFromSuperlayer()
                     if textLayer == self.oldCharacterTextLayers[longestAnimationIndex] {
-                        if let completionFunction = completion? {
+                        if let completionFunction = completion {
                             completionFunction(finished: finished)
                         }
                     }

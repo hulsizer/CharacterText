@@ -46,10 +46,10 @@ class FallingLabel: CharacterLabel {
         }
     }
     
-    func animateOut(completion: ((finished: Bool) -> Void)?) {
+    func animateOut(completion: ((finished: Bool) -> Void)? = nil) {
         
         if oldCharacterTextLayers.count == 0 {
-            if let completionFunction = completion? {
+            if let completionFunction = completion {
                 completionFunction(finished: true)
             }
         }
@@ -79,7 +79,7 @@ class FallingLabel: CharacterLabel {
                 }, completion:{ finished in
                     textLayer.removeFromSuperlayer()
                     if textLayer == self.oldCharacterTextLayers[longestAnimationIndex] {
-                        if let completionFunction = completion? {
+                        if let completionFunction = completion {
                             completionFunction(finished: finished)
                         }
                     }

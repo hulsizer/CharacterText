@@ -12,8 +12,13 @@ class FlickrCollectionViewCell: UICollectionViewCell {
     var photoImageView: UIImageView!
     var darkenMask: UIView!
     
-    init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
+        initialSetup()
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         initialSetup()
     }
     
