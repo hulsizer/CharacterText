@@ -41,9 +41,14 @@ class CharacterTextView: UITextView, NSLayoutManagerDelegate {
     
     }
         
-    init(frame: CGRect, textContainer: NSTextContainer!) {
+    override init(frame: CGRect, textContainer: NSTextContainer!) {
         super.init(frame: frame, textContainer: textContainer);
         setupLayoutManager();
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupLayoutManager()
     }
     
     override func awakeFromNib()  {
@@ -55,7 +60,7 @@ class CharacterTextView: UITextView, NSLayoutManagerDelegate {
         layoutManager.delegate = self;
     }
     
-    func layoutManager(layoutManager: NSLayoutManager!, didCompleteLayoutForTextContainer textContainer: NSTextContainer!, atEnd layoutFinishedFlag: Bool) {
+    func layoutManager(layoutManager: NSLayoutManager, didCompleteLayoutForTextContainer textContainer: NSTextContainer?, atEnd layoutFinishedFlag: Bool) {
         calculateTextLayers();
     }
 
@@ -68,7 +73,7 @@ class CharacterTextView: UITextView, NSLayoutManagerDelegate {
             let glyphRange = NSMakeRange(index, 1);
             let characterRange = layoutManager.characterRangeForGlyphRange(glyphRange, actualGlyphRange:nil);
             let textContainer = layoutManager.textContainerForGlyphAtIndex(index, effectiveRange: nil);
-            var glyphRect = layoutManager.boundingRectForGlyphRange(glyphRange, inTextContainer: textContainer);
+            var glyphRect = layoutManager.boundingRectForGlyphRange(glyphRange, inTextContainer: textContainer!);
             var location = layoutManager.locationForGlyphAtIndex(index);
             var kerningRange = layoutManager.rangeOfNominallySpacedGlyphsContainingIndex(index);
             
@@ -94,8 +99,8 @@ class CharacterTextView: UITextView, NSLayoutManagerDelegate {
     func internalAttributedText() -> NSMutableAttributedString! {
         let wordRange = NSMakeRange(0, self.attributedText.length);
         var attributedText = NSMutableAttributedString(string: self.text);
-        attributedText.addAttribute(kCTForegroundColorAttributeName , value:self.textColor.CGColor, range:wordRange);
-        attributedText.addAttribute(kCTFontAttributeName , value:self.font, range:wordRange);
+        attributedText.addAttribute(NSForegroundColorAttributeName , value:self.textColor.CGColor, range:wordRange);
+        attributedText.addAttribute(NSFontAttributeName , value:self.font, range:wordRange);
         return attributedText;
     }
     

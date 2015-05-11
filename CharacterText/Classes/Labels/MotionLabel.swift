@@ -30,8 +30,8 @@ class MotionLabel: CharacterLabel {
         oldMatchingCharacters = matches.oldMatches
         newMatchingCharacters = matches.newMatches
         
-        self.animateOut(nil);
-        self.animateIn(nil);
+        self.animateOut(completion: nil);
+        self.animateIn(completion: nil);
     }
     
     }
@@ -40,7 +40,7 @@ class MotionLabel: CharacterLabel {
         textLayer.opacity = 0
     }
     
-    func animateIn(completion: ((finished: Bool) -> Void)?) {
+    func animateIn(completion: ((finished: Bool) -> Void)? = nil) {
         
         var index = 0
         for textLayer in characterTextLayers {
@@ -62,7 +62,7 @@ class MotionLabel: CharacterLabel {
         }
     }
     
-    func animateOut(completion: ((finished: Bool) -> Void)?) {
+    func animateOut(completion: ((finished: Bool) -> Void)? = nil) {
         
         let scaleTransform = CATransform3DMakeScale(0.2, 0.2, 1)
         
@@ -85,7 +85,7 @@ class MotionLabel: CharacterLabel {
                             })
                         
                         if index == self.oldCharacterTextLayers.count-1 {
-                            if let completionFunction = completion? {
+                            if let completionFunction = completion {
                                 completionFunction(finished: finished)
                             }
                         }
@@ -102,7 +102,7 @@ class MotionLabel: CharacterLabel {
                         textLayer.removeFromSuperlayer()
                         
                         if index == self.oldCharacterTextLayers.count-1 {
-                            if let completionFunction = completion? {
+                            if let completionFunction = completion {
                                 completionFunction(finished: finished)
                             }
                         }
@@ -123,20 +123,20 @@ class MotionLabel: CharacterLabel {
         var currentLength = 0
         var startingInnerIndex = 0
         var buffer = 6
-        let characterTextLayersEndIndex = countElements(characterTextLayers)-1
+        let characterTextLayersEndIndex = count(characterTextLayers)-1
         
         for characterLayer in oldCharacterTextLayers {
             if startingInnerIndex >= characterTextLayersEndIndex {
                 break;
             }
             
-            let character = characterLayer.string as NSAttributedString
+            let character = characterLayer.string as! NSAttributedString
             for newCharacterLayer in characterTextLayers[startingInnerIndex...characterTextLayersEndIndex] {
                 if innerIndex >= buffer {
                     break
                 }
                 
-                let newCharacter = newCharacterLayer.string as NSAttributedString
+                let newCharacter = newCharacterLayer.string as! NSAttributedString
                 if character.isEqualToAttributedString(newCharacter) {
                     oldMatches[outerIndex] = startingInnerIndex+innerIndex
                     newMatches[startingInnerIndex+innerIndex] = outerIndex
