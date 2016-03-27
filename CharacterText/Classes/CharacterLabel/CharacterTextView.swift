@@ -34,7 +34,7 @@ class CharacterTextView: UITextView, NSLayoutManagerDelegate {
     set {
         cleanOutOldCharacterTextLayers();
         oldCharacterTextLayers = Array<CALayer>(characterTextLayers);
-        var newAttributedText = NSMutableAttributedString(attributedString: newValue);
+        let newAttributedText = NSMutableAttributedString(attributedString: newValue);
         newAttributedText.addAttribute(NSForegroundColorAttributeName, value:UIColor.clearColor(), range:NSMakeRange(0, newValue.length));
         super.attributedText = newAttributedText;
     }
@@ -46,7 +46,7 @@ class CharacterTextView: UITextView, NSLayoutManagerDelegate {
         setupLayoutManager();
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupLayoutManager()
     }
@@ -69,16 +69,18 @@ class CharacterTextView: UITextView, NSLayoutManagerDelegate {
         let wordRange = NSMakeRange(0, self.attributedText.length);
         let attributedString = self.internalAttributedText();
         
-        for var index = wordRange.location; index < wordRange.length+wordRange.location; index += 0 {
+        var index = wordRange.location
+        
+        while index < wordRange.length + wordRange.location {
             let glyphRange = NSMakeRange(index, 1);
             let characterRange = layoutManager.characterRangeForGlyphRange(glyphRange, actualGlyphRange:nil);
             let textContainer = layoutManager.textContainerForGlyphAtIndex(index, effectiveRange: nil);
             var glyphRect = layoutManager.boundingRectForGlyphRange(glyphRange, inTextContainer: textContainer!);
-            var location = layoutManager.locationForGlyphAtIndex(index);
-            var kerningRange = layoutManager.rangeOfNominallySpacedGlyphsContainingIndex(index);
+            let location = layoutManager.locationForGlyphAtIndex(index);
+            let kerningRange = layoutManager.rangeOfNominallySpacedGlyphsContainingIndex(index);
             
             if kerningRange.length > 1 && kerningRange.location == index {
-                var previousLayer = self.characterTextLayers[self.characterTextLayers.endIndex]
+                let previousLayer = self.characterTextLayers[self.characterTextLayers.endIndex]
                 var frame = previousLayer.frame
                 frame.size.width += (CGRectGetMaxX(glyphRect)+location.x)-CGRectGetMaxX(frame)
                 previousLayer.frame = frame
@@ -86,7 +88,7 @@ class CharacterTextView: UITextView, NSLayoutManagerDelegate {
 
             
             glyphRect.origin.y += location.y-(glyphRect.height/2);
-            var textLayer = CATextLayer(frame: glyphRect, string: attributedString.attributedSubstringFromRange(characterRange));
+            let textLayer = CATextLayer(frame: glyphRect, string: attributedString.attributedSubstringFromRange(characterRange));
             
             layer.addSublayer(textLayer);
             characterTextLayers.append(textLayer);
@@ -98,9 +100,9 @@ class CharacterTextView: UITextView, NSLayoutManagerDelegate {
     
     func internalAttributedText() -> NSMutableAttributedString! {
         let wordRange = NSMakeRange(0, self.attributedText.length);
-        var attributedText = NSMutableAttributedString(string: self.text);
-        attributedText.addAttribute(NSForegroundColorAttributeName , value:self.textColor.CGColor, range:wordRange);
-        attributedText.addAttribute(NSFontAttributeName , value:self.font, range:wordRange);
+        let attributedText = NSMutableAttributedString(string: self.text);
+        attributedText.addAttribute(NSForegroundColorAttributeName , value:self.textColor!.CGColor, range:wordRange);
+        attributedText.addAttribute(NSFontAttributeName , value:self.font!, range:wordRange);
         return attributedText;
     }
     

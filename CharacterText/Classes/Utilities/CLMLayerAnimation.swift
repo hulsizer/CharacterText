@@ -15,7 +15,7 @@ class CLMLayerAnimation: NSObject {
     
     class func animation(layer: CALayer, duration: NSTimeInterval, delay: NSTimeInterval, animations: (() -> ())?, completion: ((finished: Bool)-> ())?) -> CLMLayerAnimation {
         
-        var animation = CLMLayerAnimation()
+        let animation = CLMLayerAnimation()
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
             var animationGroup: CAAnimationGroup?
@@ -52,35 +52,35 @@ class CLMLayerAnimation: NSObject {
         var animations = Array<CABasicAnimation>()
         
         if !CATransform3DEqualToTransform(oldLayer.transform, newLayer.transform) {
-            var animation = CABasicAnimation(keyPath: "transform")
+            let animation = CABasicAnimation(keyPath: "transform")
             animation.fromValue = NSValue(CATransform3D: oldLayer.transform)
             animation.toValue = NSValue(CATransform3D: newLayer.transform)
             animations.append(animation)
         }
         
         if !CGRectEqualToRect(oldLayer.bounds, newLayer.bounds) {
-            var animation = CABasicAnimation(keyPath: "bounds")
+            let animation = CABasicAnimation(keyPath: "bounds")
             animation.fromValue = NSValue(CGRect: oldLayer.bounds)
             animation.toValue = NSValue(CGRect: newLayer.bounds)
             animations.append(animation)
         }
         
         if !CGRectEqualToRect(oldLayer.frame, newLayer.frame) {
-            var animation = CABasicAnimation(keyPath: "frame")
+            let animation = CABasicAnimation(keyPath: "frame")
             animation.fromValue = NSValue(CGRect: oldLayer.frame)
             animation.toValue = NSValue(CGRect: newLayer.frame)
             animations.append(animation)
         }
         
         if !CGPointEqualToPoint(oldLayer.position, newLayer.position) {
-            var animation = CABasicAnimation(keyPath: "position")
+            let animation = CABasicAnimation(keyPath: "position")
             animation.fromValue = NSValue(CGPoint: oldLayer.position)
             animation.toValue = NSValue(CGPoint: newLayer.position)
             animations.append(animation)
         }
         
         if oldLayer.opacity != newLayer.opacity {
-            var animation = CABasicAnimation(keyPath: "opacity")
+            let animation = CABasicAnimation(keyPath: "opacity")
             animation.fromValue = oldLayer.opacity
             animation.toValue = newLayer.opacity
             animations.append(animation)
@@ -96,7 +96,7 @@ class CLMLayerAnimation: NSObject {
     
     class func animatableLayerCopy(layer: CALayer) -> CALayer {
         
-        var layerCopy = CALayer()
+        let layerCopy = CALayer()
         
         layerCopy.opacity = layer.opacity
         layerCopy.transform = layer.transform
@@ -106,7 +106,7 @@ class CLMLayerAnimation: NSObject {
         return layerCopy;
     }
     
-    override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         if let completion = completionClosure {
             completion(finished: true)
         }
