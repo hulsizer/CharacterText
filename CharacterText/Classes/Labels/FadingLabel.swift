@@ -12,7 +12,7 @@ import CoreText
 
 class FadingLabel: CharacterLabel {
     
-    override var attributedText: NSAttributedString! {
+    override var attributedText: NSAttributedString? {
     get {
         return super.attributedText
     }
@@ -34,8 +34,8 @@ class FadingLabel: CharacterLabel {
     
         for textLayer in characterTextLayers {
             
-            var duration = (NSTimeInterval(arc4random()%100)/200.0)+0.25
-            var delay = NSTimeInterval(arc4random()%100)/500.0
+            let duration = (NSTimeInterval(arc4random()%100)/200.0)+0.25
+            let delay = NSTimeInterval(arc4random()%100)/500.0
             
             CLMLayerAnimation.animation(textLayer, duration:duration, delay:delay, animations: {
                 textLayer.opacity = 1;
@@ -70,7 +70,7 @@ class FadingLabel: CharacterLabel {
                     }
                 })
             
-            ++index
+            index += 1
         }
     }
 }

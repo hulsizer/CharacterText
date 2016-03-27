@@ -12,7 +12,7 @@ import CoreText
 
 class FallingLabel: CharacterLabel {
     
-    override var attributedText: NSAttributedString! {
+    override var attributedText: NSAttributedString? {
     get {
         return super.attributedText
     }
@@ -36,8 +36,8 @@ class FallingLabel: CharacterLabel {
         
         for textLayer in characterTextLayers {
             
-            var duration = (NSTimeInterval(arc4random()%100)/100.0)+0.3
-            var delay = NSTimeInterval(arc4random()%100)/500.0
+            let duration = (NSTimeInterval(arc4random()%100)/100.0)+0.3
+            let delay = NSTimeInterval(arc4random()%100)/500.0
             
             CLMLayerAnimation.animation(textLayer, duration:duration, delay:delay, animations: {
                 textLayer.opacity = 1;
@@ -85,7 +85,7 @@ class FallingLabel: CharacterLabel {
                     }
                 })
             
-            ++index
+            index += 1
         }
     }
 }

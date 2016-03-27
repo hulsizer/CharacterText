@@ -28,13 +28,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         flickrKit.call(FKFlickrInterestingnessGetList()) { response, error in
             if (response != nil) {
                 var photoUrls = Array<FlickrPhoto>()
-                var photos: NSDictionary = response["photos"] as! NSDictionary;
-                var photoArray: NSArray = photos["photo"] as! NSArray;
+                let photos: NSDictionary = response["photos"] as! NSDictionary;
+                let photoArray: NSArray = photos["photo"] as! NSArray;
                 //Get Photos
                 for photoData : AnyObject in photoArray {
-                    var photoDict: NSDictionary = photoData as! NSDictionary
-                    var url = flickrKit.photoURLForSize(FKPhotoSizeMedium800, fromPhotoDictionary: photoDict as [NSObject : AnyObject])
-                    var newPhoto = FlickrPhoto(photoURL: url, title: photoDict["title"] as! String)
+                    let photoDict: NSDictionary = photoData as! NSDictionary
+                    let url = flickrKit.photoURLForSize(FKPhotoSizeMedium800, fromPhotoDictionary: photoDict as [NSObject : AnyObject])
+                    let newPhoto = FlickrPhoto(photoURL: url, title: photoDict["title"] as! String)
                     photoUrls.append(newPhoto)
                 }
                 
@@ -61,7 +61,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
-        var collectionViewCell : FlickrCollectionViewCell! = collectionView.dequeueReusableCellWithReuseIdentifier("FlickrCollectionViewCell", forIndexPath: indexPath) as! FlickrCollectionViewCell
+        let collectionViewCell : FlickrCollectionViewCell! = collectionView.dequeueReusableCellWithReuseIdentifier("FlickrCollectionViewCell", forIndexPath: indexPath) as! FlickrCollectionViewCell
         
         collectionViewCell.configure(dataArray[indexPath.row])
         return collectionViewCell
@@ -69,14 +69,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         let page: Int = Int(scrollView.contentOffset.x/CGRectGetWidth(self.view.bounds))
-        var photo = dataArray[page];
+        let photo = dataArray[page];
         characterLabel.text = photo.title
     }
     
     func scrollViewDidEndDragging(scrollView: UIScrollView!, delecerate: Bool) {
         if !delecerate {
             let page: Int = Int(scrollView.contentOffset.x/CGRectGetWidth(self.view.bounds))
-            var photo = dataArray[page];
+            let photo = dataArray[page];
             characterLabel.text = photo.title
         }
     }

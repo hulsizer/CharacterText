@@ -13,25 +13,25 @@ class MotionLabel: CharacterLabel {
     var oldMatchingCharacters = Dictionary<Int, Int>()
     var newMatchingCharacters = Dictionary<Int, Int>()
     
-    override var attributedText: NSAttributedString! {
+    override var attributedText: NSAttributedString? {
     get {
         return super.attributedText
     }
     
     set {
         
-        if textStorage.string == newValue.string {
+        if textStorage.string == newValue!.string {
             return
         }
         
         super.attributedText = newValue;
         
-        let matches = self.matchingCharacterRanges(newValue.string)
+        let matches = self.matchingCharacterRanges(newValue!.string)
         oldMatchingCharacters = matches.oldMatches
         newMatchingCharacters = matches.newMatches
         
-        self.animateOut(completion: nil);
-        self.animateIn(completion: nil);
+        self.animateOut(nil);
+        self.animateIn(nil);
     }
     
     }
@@ -45,7 +45,7 @@ class MotionLabel: CharacterLabel {
         var index = 0
         for textLayer in characterTextLayers {
             
-            if let oldMatchingIndex = newMatchingCharacters[index] {
+            if let _ = newMatchingCharacters[index] {
                 textLayer.opacity = 0;
             }else{
                 let scaleTransform = CATransform3DMakeScale(0.2, 0.2, 1)
@@ -58,7 +58,7 @@ class MotionLabel: CharacterLabel {
                 
             }
             
-            ++index;
+            index += 1;
         }
     }
     
@@ -109,7 +109,7 @@ class MotionLabel: CharacterLabel {
                     })
             }
             
-            ++index;
+            index += 1;
         }
     }
     
@@ -119,11 +119,9 @@ class MotionLabel: CharacterLabel {
         
         var outerIndex = 0
         var innerIndex = 0
-        var currentIndex = 0
-        var currentLength = 0
         var startingInnerIndex = 0
-        var buffer = 6
-        let characterTextLayersEndIndex = count(characterTextLayers)-1
+        let buffer = 6
+        let characterTextLayersEndIndex = characterTextLayers.count-1
         
         for characterLayer in oldCharacterTextLayers {
             if startingInnerIndex >= characterTextLayersEndIndex {
@@ -143,11 +141,11 @@ class MotionLabel: CharacterLabel {
                     startingInnerIndex += innerIndex
                     break
                 }
-                ++innerIndex
+                innerIndex += 1
             }
             innerIndex = 0
-            ++startingInnerIndex
-            ++outerIndex
+            startingInnerIndex += 1
+            outerIndex += 1
         }
         
         assert(oldMatches.count == newMatches.count, "Matches dont match", file: "NSStringExtension", line: 46)
